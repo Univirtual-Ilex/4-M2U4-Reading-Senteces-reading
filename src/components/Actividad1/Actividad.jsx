@@ -4,7 +4,7 @@ import Container from '../Container'
 import MainTitle from '../MainTitle'
 import ButtonUi from '../ButtonControlUI'
 import {ICol, IRow} from '../Grid'
-import PersonaHover from '../PersonaHover'
+import ButtonCheck from '../ButtonCheck'
 // Styles
 import styled from 'styled-components'
 import styles, { UiButtonsContainer } from './Actividad_styles'
@@ -22,7 +22,7 @@ import data from './Actividad_data'
 
 const Actividad_base =  ({...props}) => {
     return (
-        <Container bgImage='./src/bg_actividad1.png' {...props} h={45}>
+        <Container bgImage='./src/bg_actividad1.png' {...props} h={47}>
             
             <UiButtonsContainer>
                 <ButtonUi icon='ilx-ayuda' tooltip='Drag the sentences to the correct place. ' />
@@ -58,7 +58,9 @@ const Actividad_base =  ({...props}) => {
                     <div className="btn-letter">E</div> <p className="text">I am going with my mom, my sister an dmy boyfriend</p>
                 </ICol>
                 
-
+                <IRow  >
+                    <ButtonCheck className="next"></ButtonCheck>
+                </IRow>
             </IRow>
 
         </Container>
