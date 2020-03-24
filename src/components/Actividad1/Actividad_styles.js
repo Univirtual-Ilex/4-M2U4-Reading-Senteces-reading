@@ -66,6 +66,10 @@ const mistyles = css`
     display: inline-block;
     width: 100%;
 }
+.next{
+    margin-left: 68.8em;
+    margin-top: 1.2em;
+}
 
 `
 
