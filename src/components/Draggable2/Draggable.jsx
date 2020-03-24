@@ -20,7 +20,7 @@ import Ilex from '../../App/variables.js'
  * ref: Recibe la referencia o el conjunto de referencias html del elemento al que apuntará como droppable
  */
 
-const Draggable_base = React.forwardRef(({ areaDrag, name, target, elementId, status,setStatus,idArr, draggable, ...props }, ref ) => {
+const Draggable_base = React.forwardRef(({ areaDrag, name, target, elementId, status,setStatus,idArr, draggable, pos, ...props }, ref ) => {
 		const [background, setBackground] = useState('transparent')
     const itemDraggable = useRef()
     
@@ -54,13 +54,16 @@ const Draggable_base = React.forwardRef(({ areaDrag, name, target, elementId, st
                         count ++
                     }
                     if(count == target.length){
-                        TweenMax.to(this.target, 0.2, {x:0, y:0})
+                        if(idArr === 3 || idArr === 4)
+                            TweenMax.to(this.target, 0.2, {x:195, y:0})
+                        else
+                            TweenMax.to(this.target, 0.2, {x:0, y:0})
                         return false
                     }
                 })
             }
         })
-    } , [areaDrag, target, ref, elementId, status,setStatus,idArr])
+    } , [areaDrag, target, ref, elementId, status,setStatus,idArr, pos])
 
 
     return (

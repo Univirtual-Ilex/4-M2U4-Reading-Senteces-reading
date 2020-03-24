@@ -6,12 +6,12 @@ import styles from './InputWords_styles'
 import { Input } from './InputWords_styles'
 
 // Componente base
-const InputWords_base = ({w,m,...props}) => {
+const InputWords_base = React.forwardRef(({w,m,...props}, ref) => {
     return (
         <div {...props}>
            <Input className='btn-clean' />
         </div>
     )
-}
+})
 const InputWords = styled(InputWords_base)`${ styles }`
 export default InputWords

@@ -1,114 +1,47 @@
 const data = [
     {
-        id:1,
-        pregunta:"Who wrote the previous message?",
-        respuestas: [
-            "Gerardo",
-            "Jennifer",
-            "Jennifer's mother",
-            "Not mentioned"
-        ],
-        correcta:1 
+      "id": 1,
+      "right": 0,
+      "belongsTo": ['area_0', 'area_1', 'area_2', 'area_3', 'area_4'],
+      "answer": 'area_2',
+      "letter": "A",
+      "text": "Sandra is going to start a cooking course"
     },
     {
-        id:2,
-        pregunta:"Jennifer is studying ",
-        respuestas: [
-            "Medicine",
-            "English",
-            "Veterinary",
-            "Bachelor’s degree in Spanish"
-        ],
-        correcta:1  
+      "id": 2,
+      "right": 0,
+      "belongsTo": ['area_0', 'area_1', 'area_2', 'area_3', 'area_4'],
+      "answer": 'area_1',
+      "letter": "B",
+      "text": "Sandra is going to start her own business"
     },
     {
-        id:3,
-        pregunta:" Gerardo is ",
-        respuestas: [
-        "Jennifer’s husband.",
-           "Jennifer’s child.",
-           "Jennifer’s brother.",
-           "Jennifer’s father."
-        ],
-        correcta:1  
+      "id": 3,
+      "right": 0,
+      "belongsTo": ['area_0', 'area_1', 'area_2', 'area_3', 'area_4'],
+      "answer": 'area_4',
+      "letter": "C",
+      "text": "Sandra is going to graduate"
     },
     {
-        id:4,
-        pregunta:"According to the type of message, we can infer that it is",
-        respuestas: [
-            "Informal",
-            "Formal",
-            "Not mentioned",
-            "A postcard "
-        ],
-        correcta:1
+      "id": 4,
+      "right": 0,
+      "belongsTo": ['area_0', 'area_1', 'area_2', 'area_3', 'area_4'],
+      "answer": 'area_0',
+      "letter": "D",
+      "text": "Sandra is going to visit some towns"
     },
+
     {
-        id:5,
-        pregunta:"Jennifer needs to ",
-        respuestas: [
-            "Finish her English course.",
-            "Decide about the program she wants to study.",
-            "Visit her brother.",
-            "Call her brother."
-        ],
-        correcta:1 
+      "id": 5,
+      "right": 0,
+      "belongsTo": ['area_0', 'area_1', 'area_2', 'area_3', 'area_4'],
+      "answer": 'area_3',
+      "letter": "E",
+      "text": "Sandra is going to travel to United Sates"
     },
-    {
-        id:6,
-        pregunta:"The student describes her English teacher as",
-        respuestas: [
-            "Not intelligent",
-            "Intelligent but boring",
-            "Intelligent and fun",
-            "Intelligent but lazy"
-        ],
-        correcta:1 
-    },
-    {
-        id:7,
-        pregunta:"Jennifer is",
-        respuestas: [
-            "An extension student",
-            "A student from Medicine.",
-            "A veterinary student.",
-            "A student from Environmental Management program."
-        ],
-        correcta:1
-    },
-    {
-        id:8,
-        pregunta:" Gerardo has ______ who live with him in Canada",
-        respuestas: [
-            "A big family.",
-            "A small family.",
-            "A wife and some children." ,
-            "A cat and a dog"
-        ],
-        correcta:2
-    },
-    {
-        id:9,
-        pregunta:"Jennifer needs to think more about",
-        respuestas: [
-            "Her future job",
-            "Her future career",
-            "Her mother",
-            "Her brother"
-        ],
-        correcta:2
-    },
-    {
-        id:10,
-        pregunta:"Jennifer and Gerardo will see one another in",
-        respuestas: [
-            "March",
-            "September",
-            "July",
-            "January"
-        ],
-        correcta:2
-    },
-]
+   
+  ]
+
 
 export default data

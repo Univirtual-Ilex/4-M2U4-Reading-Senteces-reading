@@ -29,21 +29,40 @@ const styles = css`
             width: 10em ;
         }
     }
+    .flex{
+        margin-top: 0.5em;
+        display: flex;
+    }
+    .drag{
+        margin-left: 1em;
+        border:2px dashed ${Ilex.color_gris_input};
+        height: 2em;
+        padding: 0.1em 0.6em;
+        box-sizing:border-box;
+        display: block;
+        border-radius: 0.5em;
+        box-shadow:0 0.3em 0 0 ${Ilex.color_gris_input};
+        font-family:${Ilex.font};
+        font-size:1em;
+        color:${Ilex.textos};
+        font-weight:bold;
+        width: 11em;
+    }
     .btn-plans{
         background: ${Ilex.violeta2};
         width: 11em;
         height: 2em;
-        cursor: pointer;
         color: white;
         border-radius: 0.5em;
         text-align: center;
         font-weight: bold;
         margin-left: 2em;
         box-shadow: 0 0.4em 0 0 rgba(0, 0, 0, 0.2);
+        
     }
     .next{
         margin-left: 68.8em;
-        margin-top: 4.5em;
+        margin-top: 4em;
     }
 `
 export const Olist = styled.ol`

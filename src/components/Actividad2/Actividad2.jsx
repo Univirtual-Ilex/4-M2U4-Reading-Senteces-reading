@@ -1,12 +1,12 @@
 //Import
-import React from 'react'
+import React, {useState, useRef} from 'react'
 import styled from 'styled-components'
 import styles from './Actividad2_styles'
 import Ilex from '../../App/variables'
 // styles from styled
 import { UiButtonsContainer } from '../Actividad1/Actividad_styles'
 // Data
-import data from './Actividad2_data'
+import Data from './Actividad2_data'
 // Components
 import Container from '../Container'
 import MainTitle from '../MainTitle'
@@ -17,10 +17,64 @@ import {Item}from './Actividad2_styles'
 import ButtonUi from '../ButtonControlUI'
 import ButtonCheck from '../ButtonCheck'
 import PreguntaRadio from '../PreguntaRadio/PreguntaRadio'
+import Answers from './Actividad2_answers'
+import DraggableItem from '../Draggable2'
+import Modal from '../Generales/Modal'
+
 // Componente base
-const Actividad2_base = ({...props}) => {
+const Actividad2_base = ({staticContext, ...props}) => {
+
+    const [modalFlag, setModal] = useState(false)
+    const [ok, setOk] = useState(false)
+    const [err, setErr] = useState(false)
+
+    const [visible, setvisible] = useState(false)
+    const [tooltipTitle, settooltipTitle] = useState()
+    const [tooltipText, settooltipText] =  useState()
+
+    const area_0 = useRef()
+    const area_1 = useRef()
+    const area_2 = useRef()
+    const area_3 = useRef()
+    const area_4 = useRef()
+
+    const setStatusCheck = (id, status, target) => {
+        var data = Answers[id]
+        data.status = status
+
+        if(target){
+            if(data.answer.indexOf(target) !== -1){
+                data.right = 1
+            }else{
+                data.right = 0
+            }
+        }else{
+            data.right = 0
+        }
+    }
+
+
+    const checkActivity = () => {
+        var count = 0
+        console.log(Answers)
+        Answers.map((data, i) => {
+            if(data.right === 1){
+                count ++
+            }else{
+                setErr(true)
+                setModal(true)
+            }
+
+            if(count === Answers.length){
+                setOk(true)
+                setModal(true)
+            }
+        })
+    }
+
+
     return (
-        <Container bgImage='./src/bg_actividad1.png' h={30} {...props}>
+        <Container bgImage='./src/bg_actividad1.png' id="area" h={30} {...props}>
 
             <UiButtonsContainer>
                 <ButtonUi icon='ilx-ayuda' tooltip='Read de statements and then classify' />
@@ -37,16 +91,34 @@ const Actividad2_base = ({...props}) => {
 
                 <IRow w={85} align='center' py='0.5'>
                     <IRow px={15} py={2}>
-                        <div className="btn-plans">A. Short term plans</div>
-                        <div className="btn-plans">B. Long term plans</div>
+                        { Answers.map((item, index) => {
+                            return(
+                                <DraggableItem 
+                                elementId={index}
+                                key={index} 
+                                setStatus={setStatusCheck} 
+                                draggable={'draggable_' + index} 
+                                idArr={index} 
+                                pos={(item.letter === 'A. Short term plans') ? '0em,0' : '12em,0'}
+                                areaDrag={'#area'} 
+                                target={item.belongsTo}  
+                                ref={[area_0, area_1, area_2, area_3, area_4]}>
+                                
+                                    <div className="btn-plans" >{item.letter}</div>
+                                </DraggableItem>
+                                  
+                            ) 
+                        }) }
                     </IRow>
                     <IRow justify='center' py={1.5}>
                         <Olist>
-                        <Item> Sandra is going to start a cooking course   <InputWords/></Item>
-                        <Item> Sandra is going to start her own business  <InputWords/></Item>
-                        <Item> Sandra is going to graduate  <InputWords/></Item>
-                        <Item> Sandra is going to visit some towns  <InputWords/></Item>
-                        <Item> Sandra is going to travel to United Sates  <InputWords/></Item>
+                        {
+                            Data.map((data, i) => {
+                                return (
+                                    <Item key={i} className="flex" > {data.text}   <div className="drag" data-selected={''} data-target={'area_' + i }   target={'area_' + i} id={'area_' + i} ref={eval('area_' + i)} /></Item>
+                                )
+                            })
+                        }
                         </Olist>
                     </IRow>
 
@@ -54,11 +126,11 @@ const Actividad2_base = ({...props}) => {
                 </IRow>
 
                 <IRow  >
-                    <ButtonCheck className="next"></ButtonCheck>
+                    <ButtonCheck onClick={checkActivity} className="next"></ButtonCheck>
                 </IRow>
             </IRow>
 
-
+            <Modal visible={modalFlag} ok={ok} err={err} w={25} repeatUrl={'/actividad2'} finished={ok} />
 
         </Container>
 

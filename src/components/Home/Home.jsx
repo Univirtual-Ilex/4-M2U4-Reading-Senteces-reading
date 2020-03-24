@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container from '../Container'
-import ButtonX from '../ButtonX'
+import {ButtonLink} from '../ButtonX'
 import estilos_home from './Home_styles'
 
 
@@ -17,7 +17,7 @@ const Home_base = function ({...props}) { // se le pasan las props para recibir 
                             <p>
                             ead the text carefully and organize the sentences extracted from it.
                             <span className='negrilla'> <br/> <br/> ¡Time to practice your reading skill!</span></p>
-                            <ButtonX>Start</ButtonX>
+                            <ButtonLink to='/actividad1'>Start</ButtonLink>
                         </div>
                     </div>
                     <div className='bloque-derecho'>
