@@ -75,7 +75,7 @@ const Actividad_base =  ({staticContext, ...props}) => {
 
             <UiButtonsContainer>
                 <ButtonUi icon='ilx-ayuda' tooltip='Drag the sentences to the correct place. ' />
-                <ButtonUi icon='ilx-volver' tooltip='Start Again' />
+                <ButtonUi icon='ilx-volver' tooltip='Start Again' onClick={ () => {window.location.reload()} } />
             </UiButtonsContainer>
             <IRow pt={1.5}>
                 <ICol py={ 0.5 }>
@@ -124,7 +124,7 @@ const Actividad_base =  ({staticContext, ...props}) => {
                 </ICol>
         
             </IRow>
-            <Modal visible={modalFlag} ok={ok} err={err} w={25} repeatUrl={'/actividad1'} nxtUrl={'/actividad2'} />
+            <Modal visible={modalFlag} ok={ok} err={err} w={25} repeatUrl={'#/actividad1'} nxtUrl={'#/actividad2'} />
                 <IRow pt={3} >
                     <ICol >
                         <ButtonCheck onClick={checkActivity} text={"check"} />
